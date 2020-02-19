@@ -20,7 +20,8 @@ app.layout = html.Div(children=[
         Vida Social:
     '''),
 
-    dcc.Input(id='input1', value='', type='number')
+    dcc.Input(id='input1', value='', type='number'),
+    html.Div(id='output')
     
 
     
@@ -28,7 +29,7 @@ app.layout = html.Div(children=[
 ])
 
 @app.callback(
-    Output('example-graph', 'figure'),
+    Output('output', 'children'),
     [Input("input1", "value")]
 )
 def update_figure(input_data):

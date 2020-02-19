@@ -16,8 +16,7 @@ markdown_text = '''
 
 *Descubre cuál alimento primario te falta y cómo puedes infundir dicha y satisfacción en tu vida.*
 '''
-nombres =  np.array(['Vida Social' , 'Relaciones' , 'Ambiente Casero' , 'Comida Casera' , 'Actividad Fisica' , 'Salud' ,
- 'Educacion' , 'Carrera' , 'Finanzas' , 'Creatividad' , 'Espiritualidad' , 'Alegria'])
+nombres =  np.array(['Vida Social' , 'Relaciones' , 'Alegria'])
 
 app.layout = html.Div(style = {'backgroundColor' : colors['background']}, children= 
     [html.H1(children='Circulo de la Vida', style = {
@@ -31,33 +30,6 @@ app.layout = html.Div(style = {'backgroundColor' : colors['background']}, childr
     html.Label('''Relaciones:
     ''') ,
     dcc.Input(id = 'relaciones' , value = 1 , type = 'number'),
-    html.Label(''' Ambiente Casero:
-    ''') ,
-    dcc.Input(id = 'ambientec', value = 2 , type = 'number'),
-    html.Label(''' Comida Casera:
-    ''') ,
-    dcc.Input(id = 'comidac', value = 2 , type = 'number'),
-    html.Label(''' Actividad Fisica:
-    ''') ,
-    dcc.Input(id = 'activf', value = 2 , type = 'number'),
-    html.Label(''' Salud:
-    ''') ,
-    dcc.Input(id = 'salud', value = 2 , type = 'number'),
-    html.Label(''' Educacion:
-    ''') ,
-    dcc.Input(id = 'educ', value = 2 , type = 'number'),
-    html.Label(''' Carrera:
-    ''') ,
-    dcc.Input(id = 'carrera', value = 2 , type = 'number'),
-    html.Label(''' Finanzas:
-    ''') ,
-    dcc.Input(id = 'finanzas', value = 2 , type = 'number'),
-    html.Label(''' Creatividad:
-    ''') ,
-    dcc.Input(id = 'crea', value = 2 , type = 'number'),
-    html.Label(''' Espiritualidad:
-    ''') ,
-    dcc.Input(id = 'espiri', value = 2 , type = 'number'),
     html.Label(''' Alegria:
     ''') ,
     dcc.Input(id = 'alegria', value = 2 , type = 'number'),
@@ -69,22 +41,13 @@ app.layout = html.Div(style = {'backgroundColor' : colors['background']}, childr
     Output('grafico', 'figure'),
     [Input('vida-social', 'value'),
     Input('relaciones', 'value'),
-    Input('ambientec', 'value'),
-    Input('comidac', 'value'),
-    Input('activf', 'value'),
-    Input('salud', 'value'),
-    Input('educ', 'value'),
-    Input('carrera', 'value'),
-    Input('finanzas', 'value'),
-    Input('crea', 'value'),
-    Input('espiri', 'value'),
     Input('alegria', 'value')]
 )
-def update_output_div(i1 , i2 ,i3 ,i4 ,i5 ,i6 ,i7 ,i8 ,i9 ,i10 ,i11 ,i12):
+def update_output_div(i1 , i2 ,i12):
 
     return { 
         'data': [            
-                {'values': [i1, i2,i3,i4,i5,i6,i7,i8,i9,i10,i11,i12], 'type': 'pie', 'names': nombres }
+                {'values': [i1, i2,i12], 'type': 'pie', 'name': nombres }
             ],
             'layout': {
                 'title' : '',
